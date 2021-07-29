@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shoppie/models/product.dart';
+import 'package:shoppie/providers/product.dart';
 import 'package:shoppie/widgets/products_grid.dart';
 
 class ProductsOverViewScreen extends StatelessWidget {

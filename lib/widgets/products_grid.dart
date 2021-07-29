@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:shoppie/models/product.dart';
+import 'package:shoppie/providers/product.dart';
 import 'package:provider/provider.dart';
 import 'package:shoppie/providers/products.dart';
 import 'package:shoppie/widgets/product_item.dart';
@@ -16,10 +16,10 @@ class ProductsGrid extends StatelessWidget {
     return GridView.builder(
       padding: const EdgeInsets.all(10),
       itemCount: products.length,
-      itemBuilder: (ctx, i) => ProductItem(
-        products[i].id,
-        products[i].title,
-        products[i].imageUrl,
+      itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
+        // create: (ctx) => products[i],
+        value: products[i],
+        child: ProductItem(),
       ),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         childAspectRatio: 3 / 2,
