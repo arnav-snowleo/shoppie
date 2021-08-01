@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoppie/widgets/product_item.dart';
 import 'product.dart';
 
 class Products with ChangeNotifier {
@@ -37,8 +38,12 @@ class Products with ChangeNotifier {
     ),
   ];
 
-  List<Product> get items {
+  List<Product> get allItems {
     return [..._items];
+  }
+
+  List<Product> get favoriteItems{
+    return _items.where((prodItem) => prodItem.isFavourite).toList();
   }
 
   Product findById(String id) {
