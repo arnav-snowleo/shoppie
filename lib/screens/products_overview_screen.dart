@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shoppie/providers/cart.dart';
 import 'package:shoppie/providers/product.dart';
+import 'package:shoppie/widgets/badge.dart';
 import 'package:shoppie/widgets/products_grid.dart';
 
 enum filterOptions {
@@ -42,6 +45,16 @@ class _ProductsOverViewScreenState extends State<ProductsOverViewScreen> {
               ),
             ],
           ),
+          Consumer<Cart>(
+            builder: (_, cartObject, ch) => Badge(
+              child: ch,
+              value: cartObject.itemCount.toString(),
+            ),
+            child: IconButton(
+              icon: Icon(Icons.shopping_cart),
+              onPressed: () {},
+            ),
+          )
         ],
       ),
       body: ProductsGrid(_showOnlyFavorites),
